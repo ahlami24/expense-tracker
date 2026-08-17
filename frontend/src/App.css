@@ -1,0 +1,545 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: #f6f7fb;
+  color: #171923;
+}
+
+/* =========================
+   APP
+========================= */
+
+.App {
+  min-height: 100vh;
+  padding: 32px 24px 60px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================
+   TOP HEADER
+========================= */
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 28px;
+}
+
+.header {
+  margin: 0;
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.header p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* =========================
+   DASHBOARD STATS
+========================= */
+
+.dashboard {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  background: #ffffff;
+  padding: 14px 20px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  box-shadow:
+    0 4px 15px rgba(15, 23, 42, 0.04);
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.stat-card span {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.stat-card strong {
+  color: #111827;
+  font-size: 18px;
+  font-weight: 750;
+}
+
+/* =========================
+   GENERAL CARD
+========================= */
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 24px;
+
+  box-shadow:
+    0 8px 25px rgba(15, 23, 42, 0.04);
+
+  margin-bottom: 24px;
+}
+
+.card h2 {
+  font-size: 19px;
+  font-weight: 750;
+  color: #111827;
+  margin-bottom: 18px;
+}
+
+/* =========================
+   ADD EXPENSE
+========================= */
+
+.expense-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 12px;
+}
+
+input {
+  width: 100%;
+  height: 44px;
+
+  padding: 0 14px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #ffffff;
+  color: #111827;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+input:hover {
+  border-color: #b8bec8;
+}
+
+input:focus {
+  border-color: #6366f1;
+
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+  height: 44px;
+
+  border: none;
+  border-radius: 10px;
+
+  padding: 0 16px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 650;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.add-button {
+  background: #4f46e5;
+  color: white;
+
+  box-shadow:
+    0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+.add-button:hover {
+  background: #4338ca;
+}
+
+/* =========================
+   EXPENSE GRID
+========================= */
+
+.expenses-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+/* =========================
+   EXPENSE CARD
+========================= */
+
+.expense {
+  position: relative;
+
+  min-width: 0;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+
+  padding: 20px;
+
+  min-height: 190px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  box-shadow:
+    0 5px 18px rgba(15, 23, 42, 0.04);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.expense:hover {
+  transform: translateY(-3px);
+
+  border-color: #d8dbff;
+
+  box-shadow:
+    0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+/* =========================
+   EXPENSE INFORMATION
+========================= */
+
+.expense-info {
+  min-width: 0;
+}
+
+.expense-info h3 {
+  font-size: 18px;
+  font-weight: 750;
+
+  color: #111827;
+
+  margin-bottom: 10px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.expense-info p {
+  color: #6b7280;
+  font-size: 13px;
+
+  margin-top: 5px;
+}
+
+.expense-amount {
+  color: #111827 !important;
+
+  font-size: 25px !important;
+  font-weight: 800;
+
+  margin-top: 6px !important;
+}
+
+.expense-info p:last-child {
+  display: inline-block;
+
+  margin-top: 12px;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  background: #eef2ff;
+
+  color: #4f46e5;
+
+  font-size: 12px;
+  font-weight: 650;
+}
+
+/* =========================
+   EXPENSE ACTIONS
+========================= */
+
+.expense-actions {
+  display: flex;
+
+  gap: 8px;
+
+  margin-top: 18px;
+}
+
+.expense-actions button {
+  flex: 1;
+
+  height: 38px;
+
+  font-size: 13px;
+}
+
+.edit-button {
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+.edit-button:hover {
+  background: #e0e7ff;
+}
+
+.delete-button {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.delete-button:hover {
+  background: #fee2e2;
+}
+
+/* =========================
+   EDIT FORM
+========================= */
+
+.edit-form {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 10px;
+
+  width: 100%;
+}
+
+.edit-form button {
+  width: 100%;
+}
+
+.save-button {
+  background: #16a34a;
+  color: white;
+}
+
+.save-button:hover {
+  background: #15803d;
+}
+
+.cancel-button {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.cancel-button:hover {
+  background: #e5e7eb;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty {
+  text-align: center;
+
+  padding: 50px 20px;
+
+  color: #9ca3af;
+
+  background: #fafafa;
+
+  border: 1px dashed #d1d5db;
+
+  border-radius: 14px;
+
+  font-size: 14px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 950px) {
+  .container {
+    max-width: 800px;
+  }
+
+  .expenses-list {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .top-bar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dashboard {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+  .App {
+    padding: 24px 15px 45px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .dashboard {
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, 1fr);
+
+    gap: 10px;
+
+    padding: 14px;
+  }
+
+  .stat-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+  }
+
+  .stat-card strong {
+    font-size: 16px;
+  }
+
+  .expense-form {
+    grid-template-columns: 1fr;
+  }
+
+  .expenses-list {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 18px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.expense-filters {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.expense-filters input {
+  width: 100%;
+}
+
+.expense-filters select {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+
+  background: white;
+  color: #111827;
+
+  font-size: 14px;
+  outline: none;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.expense-filters select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+@media (max-width: 650px) {
+  .expense-filters {
+    grid-template-columns: 1fr;
+  }
+}
